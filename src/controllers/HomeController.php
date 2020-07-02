@@ -3,25 +3,16 @@ namespace src\controllers;
 
 // Chamamos os arquivos, pode ser model tbm
 use \core\Controller;
-// use \src\models\Test; 
+use \src\models\Usuario;
 
 class HomeController extends Controller {
 
     public function index() {
-        // $this->render('home', ['nome' => 'Viturino']);
-
-        $posts = [
-            ['titulo' => 'Titulo Post 1', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-            ['titulo' => 'Titulo Post 2', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-            ['titulo' => 'Titulo Post 3', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-            ['titulo' => 'Titulo Post 4', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-            ['titulo' => 'Titulo Post 5', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.']
-        ];
+        
+        $usuarios = Usuario::select()->execute();
 
         $this->render('home', [
-            'nome' => 'Rodrigo',
-            'idade' => 26,
-            'posts' => $posts
+            'usuarios' => $usuarios
         ]);
     }
 
